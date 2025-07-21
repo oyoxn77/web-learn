@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="flex-container">
+        <div class="item">1</div>
+        <div class="item2">2</div>
+
+
+    </div>
+
+</body>
+<style>
+    .flex-container {
+        display: flex;
+        /* space-between两端对齐 中间自动分散; */
+        /* justify-content:space-between; */
+        /* 居中对齐 */
+        justify-content: center;
+        /* 自动换行：商品列表、图片墙 */
+        flex-wrap: wrap;
+        align-items: center;
+    }
+
+    .item {
+        border: 2px solid #000;
+        width: 50px;
+        height: 50px;
+
+    }
+
+    .item2 {
+        border: 2px solid #000;
+        width: 50px;
+        height: 50px;
+        /* 子项占满剩余宽度：后台左侧固定右侧自适应 */
+        /* 子项类名都为item flex:1将等分 eg.等宽菜单项 */
+        flex: 1
+    }
+</style>
+
+</html>

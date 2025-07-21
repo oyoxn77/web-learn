@@ -1,0 +1,38 @@
+1.$
+   允许定义变量来复用颜色、字体、尺寸等
+    $primary-color: #007bff;
+    .button {
+    background-color: $primary-color;
+    }
+    统一管理样式
+
+
+2.模块化导入
+eg. @import 'button'
+
+3.可以直接计算长度
+
+4.混合宏/函数（可带参数eg.传入$color）
+@mixin center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.box {
+  @include center;
+}
+
+5.继承
+// 定义占位样式
+%base-button {
+  padding: 10px;
+  border: none;
+  border-radius: 4px;
+}
+
+// 使用占位样式
+.btn {
+  @extend %base-button;
+  background-color: blue;
+}

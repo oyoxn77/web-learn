@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <!-- 超链接 target控制是否在当前页打开 -->
+    <a href="https://www.baidu.com" target="_blank">baidu</a>
+    <a href="#section1">跳转到section1</a>
+    <a href="#section2">跳转到section2</a>
+
+    <div id="section1">第一部分</div>
+    <!-- loading:lazy 懒加载，可以提高页面加载速度 -->
+    <!-- div 默认没有高度 所以图片就算加载成功 不设置宽高也显示不出来 -->
+    <div class="image">
+        图片
+    </div>
+    <!-- 嵌入音频 -->
+    <audio controls>
+        <source src="https://www.w3school.com.cn/i/horse.mp3" type="audio/mpeg">
+        您的浏览器不支持 audio 标签。
+    </audio>
+    <br>
+    <div id="section2">第二部分</div>
+
+    <!-- 文字 -->
+    <div class="text">
+        测试文字
+    </div>
+
+    <!-- float浮动 -->
+    <div class="box1">左浮动</div>
+    <div class="box2">左浮动</div>
+</body>
+
+<style>
+    .image {
+        background-image: url("https://www.baidu.com/img/PCtm_d9c8750bed0b3c7d089fa7d55720d6cf.png");
+        /* background-position: 100px 20px; */
+        height: 300px;
+        width: 300px;
+        /* overflow: visible; */
+        background-repeat: no-repeat;
+        background-size: contain;
+        /*将图片缩放到元素的大小 ->肯定能完整展示图片*/
+    }
+
+    .text {
+        font-weight: bold;
+        font-size: 20px;
+        color: red;
+        text-align: center;
+        letter-spacing: 10px;
+
+        border-width: 2px;
+        border-style: solid;
+        border-color: blue;
+        margin: 40px 70px 50px;
+        /*margin外：上 左右 下*/
+    }
+
+    .box1{
+        border: 2px solid red;
+        width: 200px;
+        height: 50px;
+        float: right;
+    }
+    .box2{
+        border: 2px solid green;
+        width: 100px;
+        height: 80px;
+        float: left;
+        
+
+    }
+</style>
+
+</html>

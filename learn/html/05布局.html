@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="box1"></div>
+    <div class="vcenter">垂直居中</div>
+    <div class="box2">靠右</div>
+
+    <!-- flex 弹性布局 -->
+    <div class="flex-container">
+        <div class="item">1</div>
+        <div class="item1">2</div>
+        <div class="item">3</div>
+        <div class="item">4</div>
+
+    </div>
+
+</body>
+<style>
+    .box1 {
+        height: 100px;
+        width: 50px;
+        margin: 0 auto;
+        /*水平居中*/
+
+        border: 2px solid red;
+    }
+
+    .vcenter {
+        border: 2px solid green;
+        height: 100px;
+        line-height: 100px;
+        /*和height一样时 垂直居中*/
+        text-align: center;
+        /*水平居中*/
+    }
+
+    .box2 {
+        border: 2px solid blue;
+        margin: 5px;
+        width: 50px;
+        margin-left: auto;
+        /*靠右*/
+    }
+
+    /* flex 弹性布局 */
+    /* 父容器设置display: flex */
+    .flex-container {
+        display: flex;
+        /* 设置主轴方向 */
+        flex-direction: column; 
+        /* 主轴justify-content 交叉轴align-items对齐方向 ——水平垂直居中*/
+        justify-content: center;
+        align-items: center;
+        /* 超出是否换行 */
+        flex-wrap: wrap;
+    }
+    .item{
+        border: 2px solid black;
+        margin: 2px;
+        width: 100px;
+        height: 100px;
+        /* 剩余空间被平分 这是1份 如果有其他的设置2就是2份 */
+        flex-grow: 1;
+    }
+    .item1{
+        border: 2px solid black;
+        margin: 2px;
+        width: 100px;
+        height: 100px;
+        /* flex:grow shrink basis */
+        /* 剩余空间被平分 1是1份 如果有其他的设置2就是2份 */
+        flex-grow: 5;
+
+        /* 空间不足时如何缩小 0为不可压缩 */
+        flex-shrink: 0;
+
+        /* 基础尺寸 扩展和缩小在这个基础上进行 */
+        flex-basis: 100px;
+
+        /* 覆盖容器的align-items属性  由于内容是纯文本2 对齐到文本的底部*/
+        align-self:baseline;
+    }
+</style>
+
+</html>

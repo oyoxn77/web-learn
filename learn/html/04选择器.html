@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="box" class="container">
+        <p class="text" id="para">这是段落</p>
+        <div class="text">这是另一个文本</div>
+    </div>
+
+</body>
+<style>
+    /* 后代选择器不提升优先级 依旧按照基本规则 */
+/* 标签选择器 */
+p {
+  color: blue;
+}
+
+/* 类选择器 */
+.text {
+  font-size: 16px;
+  color: aqua;
+}
+
+/* ID 选择器 */
+#box {
+  border: 2px solid red;
+  padding: 10px;
+}
+
+/* 后代选择器（选中 container 内的所有 .text） */
+.container .text {
+  color: green;
+}
+ 
+.container #para{
+    color: blueviolet;
+}
+
+</style>
+
+</html>

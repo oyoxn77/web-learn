@@ -1,0 +1,29 @@
+<form>
+  <!-- 使用label 使得点击文字也可以聚焦输入框 -->
+  <label>姓名：
+    <input type="text" name="name" required minlength="2">
+  </label><br>
+
+  <label>年龄：
+    <input type="number" name="age" min="1" max="120">
+  </label><br>
+
+  邮箱：<input type="email" name="email" required></label><br>
+  
+
+  <label>性别：
+    <select required>
+      <option value="">请选择</option>
+      <option value="male">男</option>
+      <option value="female">女</option>
+    </select>
+  </label><br>
+
+  <label>自我介绍：
+    <textarea maxlength="200"></textarea>
+  </label><br>
+
+  <!-- 重置可以直接清空 -->
+  <button type="submit">提交</button>
+  <button type="reset">重置</button>
+</form>
