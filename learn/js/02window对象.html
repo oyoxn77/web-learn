@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <a href="javascript:window.history.back()">后退</a>
+    <a href="javascript:window.history.forward()">前进</a><br>
+    <a href="javascript:window.history.go(1)">前进1，相当于前进</a><br>
+    <a href="javascript:window.history.go(-1)">后退-1，相当于后退</a>
+    <a href="javascript:window.history.reload()"></a><br>
+
+    <a href="javascript:alert(window.location.href)">获取当前页面的url</a><br>
+    <a href="javascript:window.location.reload()">刷新</a><br>
+    <a href="javascript:window.location.replace('./01.html')">跳转</a>
+
+    <!-- window对象方法 -->
+    <a href="javascript:window.open('https://www.baidu.com')">打开新页面</a><br>
+    <a href="javascript:window.close()">关闭</a><br>
+
+
+
+</body>
+
+<!-- 弹框 -->
+<script>
+    window.alert("弹框")
+    var res = window.confirm("确认框")
+    if (res) {
+        alert("你点击了确认")
+    } else {
+
+    }
+</script>
+
+</html>

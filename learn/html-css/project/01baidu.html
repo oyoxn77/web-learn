@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>带序号的新闻列表</title>
+</head>
+
+<body>
+    <div class="news">
+        <h3>新闻热榜</h3>
+        <ul>
+
+            <li><a href=""><span class="col1">1</span>全国人代会第二次全体会议热？</a></li>
+            <li><a href=""><span class="col2">2</span>美官员承认美国在乌生物实验室有料</a></li>
+            <li><a href=""><span class="col3">3</span>组关键词读催“两高”报告热</a></li>
+            <li><a href=""><span>4</span>建议独生子女父母退休金上调10-20%新</a></li>
+            <li><a href=""><span>5</span>昨日新增本土确诊233例无症状322例热</a></li>
+            <li><a href=""><span>6</span>陕西新增10例本土确诊病例新</a></li>
+            <li><a href=""><span>7</span>新冠或致大脑萎缩使人提前老10岁</a></li>
+            <li><a href=""><span>8</span>代表：45岁退休利于减少晚婚晚育</a></li>
+        </ul>
+    </div>
+</body>
+<style>
+    /* 浏览器自带margin使得div不贴边 */
+    /* 清除样式 */
+    body,
+    h3,
+    ul {
+        margin: 0px;
+        padding: 0px;
+    }
+
+    .news {
+        width: 391px;
+        height: 400px;
+        margin: 50px auto 0px;
+        /*上:50px 左右:auto居中 下:0px*/
+        padding: 10px;
+    }
+
+    .news h3 {
+        margin-bottom: 20px;
+    }
+
+    .news ul {
+        /*去掉默认的列表符号*/
+        list-style: none;
+    }
+
+    .news li {
+        border-bottom: 1px dotted #ddd;
+        height: 35px;
+        /* line-height: 35px; 和高度一致可以实现文字垂直居中*/
+        line-height: 35px;
+        font-size: 16px;
+
+    }
+
+    .news li a {
+        color: #333;
+        /* 去掉下划线 */
+        text-decoration: none;
+    }
+
+    .news li a:hover {
+        color: #f00;
+    }
+
+    .news li span {
+        margin-right: 10px;
+        font-weight: bold;
+    }
+
+    .col1 {
+        color: #f00;
+    }
+
+    .col2 {
+        color: #ff5c55;
+    }
+
+    .col3 {
+        color: #ffa552;
+    }
+</style>
+
+</html>

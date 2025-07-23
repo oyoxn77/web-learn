@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,15 +10,60 @@
 <body>
     <div id="box1">div1</div>
 
-<script>
-alert("hello js");
-document.write("<div class='box2'>div2</div>");
-document.write("11111");
-// 获取的标签加载完才可以使用getElementById 注意写的是id还是class
-document.getElementById("box1").innerHTML = "div1 changed";
-console.log("hello console");
+    <script>
+        alert("hello js");
+        document.write("<div class='box2'>div2</div>");
+        document.write("11111");
+        // 获取的标签加载完才可以使用getElementById 注意写的是id还是class
+        document.getElementById("box1").innerHTML = "div1 changed";
+        console.log("hello console");
 
-</script>
+        // 自定义函数
+        function print() {
+            document.write("hello");
+        }
+        function getSum(a, b) {
+            var he = a + b;
+            return he;
+        }
+        print();
+        var res = getSum(1, 2.3);
+        document.write("<br/>结果是" + res + "<br/>")
+
+        // 匿名函数
+        var fun = function () {
+            document.write("匿名函数");
+        }
+        var fun2 = function (a, b) {
+            document.write("匿名函数" + a + b);
+        }
+        var fun3 = function (a, b) {
+            document.write("匿名函数" + a + b);  //拼接
+            return a + b;
+        }
+        fun();
+        fun2(1, 2);
+        var res = fun3(3, 4);
+        console.log(res);
+
+        var student = {
+            name: "张三",
+            age: 20,
+            height:130
+        };
+
+        var student2 = {
+            name:"李四",
+            age: 25,
+            height:140,
+            study:function(){
+                alert("study");
+        }
+    }
+
+student2.study();
+
+    </script>
 
 
 </body>
@@ -25,10 +71,11 @@ console.log("hello console");
 </html>
 
 <style>
-.box1 {
-border: 2px solid red;
-}
-.box2 {
-    border: 2px solid green;
-}
+    .box1 {
+        border: 2px solid red;
+    }
+
+    .box2 {
+        border: 2px solid green;
+    }
 </style>

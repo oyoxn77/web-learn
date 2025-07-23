@@ -1,0 +1,17 @@
+network conditions:
+    network throttling 设置为offline 可以模拟网络不稳定状况（可以获取到页面底部，有些页面联网下一直加载）
+
+display:inline-block     使元素在一行显示，并排排列,并且可以设置宽高
+
+flex布局：
+    顶部导航（一个居左一个居右）：
+        .wrap{
+            display: flex;
+        }
+        .left{
+            //靠左默认
+        }
+        .right{
+            margin-left: auto; //靠右
+        }
+    

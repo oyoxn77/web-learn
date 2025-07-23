@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>京东仿写</title>
+    <style>
+        .header {
+            font-size: 12px;
+            color: #505259;
+        }
+
+        /* 去掉页面本身自带边距样式 */
+        body {
+            padding: 0;
+            margin: 0;
+        }
+
+        .header .wrap {
+            width: 1252px;
+            height: 36px;
+            border: 1px solid red;
+            /* 居中 */
+            margin: 0 auto;
+            /* flex布局 */
+            display: flex;
+        }
+
+        .header .left {
+            margin-left: 10px;
+        }
+
+        .header .right {
+            margin-left: auto;
+            margin-right: 10px;
+        }
+
+        .wrap span {
+            display: inline-block;
+            width: 1px;
+            height: 8px;
+            background-color: #505259;
+        }
+
+        .header .wrap a {
+            font-size: 12px;
+            color: #505259;
+            text-decoration: none;
+
+        }
+
+        .header .wrap a,
+        .header .wrap span {
+            margin-right: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="header">
+        <div class="wrap">
+            <div class="left">
+                <a href="#">上海</a>
+                <span></span>
+                <a href="#">你好，<strong>请登录</strong></a>
+                <a href="#">免费注册</a>
+                <span></span>
+                <a href="#">切换至企业版</a>
+                <a href="#">你好</a>
+            </div>
+            <div class="right">
+                <a href="#">购物车</a>
+                <span></span><a href="#">我的订单</a>
+                <span></span><a href="#">我的京东</a>
+                <span></span><a href="#">企业采购</a>
+                <span></span><a href="#">商家服务</a>
+                <span></span><a href="#">网站导航</a>
+                <span></span><a href="#">手机京东</a>
+                <span></span><a href="#">网站无障碍</a>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
