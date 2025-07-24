@@ -1,0 +1,21 @@
+head中style标签 内部样式
+link引入css文件 外部样式
+
+后代选择器 空格 所有后代元素
+自带选择器 >   直接子元素
+
+flex
+flex-direction:column;  主轴方向
+父容器：（沿主轴线对齐。eg.贴着上边 居中 还是下边 )
+justify-content:  flex-start | center | flex-end;  
+水平方向
+align-items： flex-start | center | flex-end | stretch;  
+=》所以 flex布局 + justify-content:center + align-items:center 就实现水平垂直都居中
+
+子元素：
+一个值的时候就是grow权重
+flex: 1  ；
+flex: <flex-grow> <flex-shrink> <flex-basis>;
+如果子元素同时给了width的值和flex：
+取决于flex-basis的值。
+如果是auto，就是width的值。

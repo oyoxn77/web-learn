@@ -27,6 +27,11 @@
             display: flex;
         }
 
+        /* 使得之后页面内容都跟header的宽度一致 */
+        .inner {
+            width: 1252px
+        }
+
         .header .left {
             margin-left: 10px;
         }
@@ -54,6 +59,58 @@
         .header .wrap span {
             margin-right: 10px;
         }
+
+        .section2 {
+            width: 1180px;
+            height: 134px;
+            margin: 0 auto;
+            display: flex;
+            border: 1px solid green;
+        }
+
+        .section2 .left {
+            display: flex;
+        }
+
+        .section2 .left img {
+            width: 240px;
+            height: 70px;
+            align-items: center;
+
+        }
+
+        .section2 .center .search {
+            width: 394px;
+            height: 44px;
+        }
+
+        .section2 .center .search input {
+            width: 390px;
+            height: 40px;
+            border-radius: 8px;
+            padding: 2px 128px 2px 19px;
+            line-height: 32px;
+            font-size: 14px;
+        }
+
+        .section2 .center .search .btn-search {
+            width: 80px;
+            height: 36px;
+            line-height: 36px;
+            /*字体垂直居中 和height等高*/
+            border-radius: 6px;
+            background-color: #FF0F23;
+            border: none;
+            font-weight: 600;
+            font-size: 16px;
+            color: #FFF;
+            /* position: absolute; */
+        }
+
+        .section2 .center .tags {
+            /* 为什么不生效？ */
+            text-decoration: none;
+        }
     </style>
 </head>
 
@@ -79,6 +136,28 @@
                 <span></span><a href="#">手机京东</a>
                 <span></span><a href="#">网站无障碍</a>
             </div>
+        </div>
+
+        <div class="section2 inner">
+            <div class="left">
+                <img src="https://m.360buyimg.com/babel/jfs/t20280615/318148/22/9216/14627/684fdc85Fa154b4e0/0742847dfed41e81.png"
+                    alt="京东">
+            </div>
+            <div class="center">
+                <div class="search">
+                    <input type="text">
+                    <span class="photo"></span>
+                    <button class="btn-search">搜索</button>
+                </div>
+                <div class="tags">
+                    <a href="">京东奢品 低至2折</a>
+                    <a href="">大牌空调低至5折</a>
+                    <a href="">饮用水</a>
+                    <a href="">卫生用品</a>
+                </div>
+                <div class="ai"></div>
+            </div>
+            <div class="right"></div>
         </div>
     </div>
 </body>
