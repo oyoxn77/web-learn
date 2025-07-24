@@ -22,19 +22,57 @@
     <a href="javascript:window.open('https://www.baidu.com')">打开新页面</a><br>
     <a href="javascript:window.close()">关闭</a><br>
 
+    <!-- 定时器案例 -->
+    <div id="today1">
+        div--显示时间1
+    </div>
+    <a href="javascript:window.clearInterval(flag1)">停止定时器clearInterval</a><br>
+    <div id="today2">
+        div--显示时间2
+    </div>
+    <a href="javascript:window.clearInterval(flag2)">停止定时器clearTimeout</a><br>
 
+    <script>
+        // 基本弹窗
+        // window.alert("弹框")
+        // 确认框
+        // var res = window.confirm("确认框")
+        // if (res) {
+        //     alert("你点击了确认")
+        // } else {
+        //     alert("你点击了取消")
+        // }
+        // 弹窗输入框 (提示信息，默认值)
+        // var age = window.prompt("请输入你的年龄", 20)
+        // alert("你的年龄是:" + age)
+
+        // 定时器案例
+        function showTime1() {
+            var time = new Date();
+            var year = time.getFullYear();
+            var month = time.getMonth() + 1;
+            var date = time.getDate();
+            var hour = time.getHours();
+            var minute = time.getMinutes();
+            var second = time.getSeconds();
+            document.getElementById("today1").innerHTML = year + "-" + month + "-" + date + " " + hour + ":" + minute + ":" + second;
+        }
+        function showTime2() {
+            var time = new Date();
+            var year = time.getFullYear();
+            var month = time.getMonth() + 1;
+            var date = time.getDate();
+            var hour = time.getHours();
+            var minute = time.getMinutes();
+            var second = time.getSeconds();
+            document.getElementById("today2").innerHTML = year + "-" + month + "-" + date + " " + hour + ":" + minute + ":" + second;
+        }
+        // setInterval 间断执行
+        // setTimeout 延迟执行 仅一次
+        var flag1 = window.setInterval(showTime1, 3000)
+        var flag2 = window.setTimeout(showTime2, 5000)
+    </script>
 
 </body>
-
-<!-- 弹框 -->
-<script>
-    window.alert("弹框")
-    var res = window.confirm("确认框")
-    if (res) {
-        alert("你点击了确认")
-    } else {
-
-    }
-</script>
 
 </html>

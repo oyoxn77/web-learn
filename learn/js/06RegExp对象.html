@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var reg = /hello/i; // 忽略大小写
+        var str = "Hello World";
+        var result = reg.test(str); // true
+        console.log(result);
+
+        var reg2 = /^[a-zA-Z]+[\u4e00-\u9fa5]*[0-9]$/
+        var str2 = "a公司拼音为9";
+        var str3 = "a公司拼音为999";
+        console.log(reg2.test(str2));//true
+        console.log(reg2.test(str3)); // false
+    </script>
+</body>
+
+</html>

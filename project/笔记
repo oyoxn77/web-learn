@@ -14,4 +14,20 @@ flex布局：
         .right{
             margin-left: auto; //靠右
         }
+
+    左中右：
+    .wrap{
+            display: flex;
+            justify-content: space-between; //会将首尾元素推到两侧
+            align-items: center; //会将元素居中
+        }
+        .left,
+        .center,
+        .right
+        {
+            border: 1px solid #ccc;
+        }
+        .cneter{
+            margin:0 auto; //中间元素居中
+        }
     

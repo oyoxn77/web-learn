@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>表单验证</title>
+</head>
+
+<body>
+    <h1>注册</h1>
+    <!-- onsubmit="return resgister()" 前端校验 -->
+    <form method="get" onsubmit="return resgister()">
+        *用户名:<input type="text" id="username" onblur="valiadateName()" placeholder="请输入用户名">
+        <span id="nameMsg">用户名至少6位</span><br>
+        *密码:<input type="password" id="password" onblur="valiadatePwd()" placeholder="请输入密码">
+        <span id="pwdMsg">密码长度至少8位</span><br>
+        *确认密码:<input type="password" id="password2" onblur="confirmPassword()" placeholder="请输入确认密码">
+        <span id="pwdMsg2">确认与密码一致</span><br>
+        *性别：<select id="gender">
+            <option value="-1">请选择性别</option>
+            <option value="0">男</option>
+            <option value="1">女</option>
+        </select><br>
+        <button type="submit">注册</button>
+        <button type="reset">重置</button>
+    </form>
+
+    <script>
+        function valiadateName() {
+            var name = document.getElementById("username").value;
+            var msg = document.getElementById("nameMsg");
+            if (name == null || name == "") {
+                msg.innerHTML = "用户名不能为空";
+                msg.style.color = "red";
+                return false;
+            } else if (name.length < 6) {
+                msg.innerHTML = "用户名至少6位";
+                msg.style.color = "red";
+                return false;
+            }
+            msg.innerHTML = "用户名可用";
+            msg.style.color = "green";
+            return true;
+        }
+        function valiadatePwd() {
+            var pwd = document.getElementById("password").value;
+            var msg = document.getElementById("pwdMsg");
+            if (pwd == null || pwd == "") {
+                msg.innerHTML = "密码不能为空";
+                msg.style.color = "red";
+                return false;
+            } else if (pwd.length < 8) {
+                msg.innerHTML = "密码长度至少8位";
+                msg.style.color = "red";
+                return false;
+            }
+            msg.innerHTML = "密码可用";
+            msg.style.color = "green";
+            return true;
+        }
+        function confirmPassword() {
+            var pwd = document.getElementById("password").value;
+            var pwd2 = document.getElementById("password2").value;
+            console.log(pwd2);
+            var msg = document.getElementById("pwdMsg2");
+            if (pwd2 == null || pwd2 == "") {
+                msg.innerHTML = "确认密码不能为空";
+                msg.style.color = "red";
+                return false;
+            }
+            if (pwd2.length < 8) {
+                msg.innerHTML = "确认密码长度至少8位";
+                msg.style.color = "red";
+            }
+            if (pwd != pwd2) {
+                msg.innerHTML = "确认密码与密码不一致";
+                msg.style.color = "red";
+                return false;
+            }
+            msg.innerHTML = "密码可用";
+            msg.style.color = "green";
+            return true;
+        }
+        function resgister() {
+            return
+        }
+    </script>
+</body>
+
+</html>

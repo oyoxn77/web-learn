@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <p class="demo">p</p>
+    <div id="myDiv" class="demo"> 盒子</div>
+    <ul class="demo">
+        <li>li111</li>
+        <li name="li222">li111111111111</li>
+        <li>li111111</li>
+        <li name="li333">li111111111111</li>
+    </ul>
+
+    <h1 style="color: green;" id="myh1">hello world</h1>
+
+    <!-- 创建新的html元素 -->
+    <button type="button" onclick="createNewP()">动态添加一个元素--appendChild</button>
+    <button type="button" onclick="createNewP2()">动态添加一个元素--insertBefore</button>
+    <div id="div1">
+        <p id="p1">这是段落1</p>
+        <p id="p2">这是段落2</p>
+    </div>
+
+    <!-- 替换html元素 -->
+    <div id="div2">
+        <p id="p3">这是一个段落</p>
+        <p id="p4">这是另外一个段落</p>
+    </div>
+    <button type="button" onclick="replaceP()">替换元素</button>
+    <button type="button" onclick="deleteP4()">删除p4</button>
+
+    <script>
+        // document.addEventListener('DOMContentLoaded', function () {
+        //     console.log('DOM 加载完成，可以安全访问所有元素');
+        // });
+
+        // 获取元素
+        var list = document.getElementsByClassName("demo")
+        console.log(list)
+        var list2 = document.getElementsByTagName("li")
+        console.log(list2.length)
+        var list3 = document.getElementsByName("li222")
+        console.log(list3[0].innerHTML)
+
+        // 修改html属性
+        var myDiv = document.getElementById("myDiv")
+        console.log(myDiv.innerHTML)
+        myDiv.innerHTML = "修改后的内容";
+        var myh1 = document.getElementById("myh1")
+        myh1.setAttribute("class", "bg")
+        console.log(myh1.getAttribute("class"));//获取属性class 
+        console.log(myh1.getAttribute("style"));//获取属性style
+
+        // 修改html元素的css
+        document.getElementById("myDiv").style.border = "1px solid red";
+
+        // 创建新的html元素
+        // 要创建新的html元素（节点）需要先创建一个元素，然后在已存在的元素中添加他
+        function createNewP() {
+            // 创建一个新的段落元素
+            var newP = document.createElement("p")
+            //新文本节点
+            var text = document.createTextNode("新创建的段落")
+            newP.appendChild(text)
+
+            // 获取已存在的元素
+            var div = document.getElementById("p1")
+            // 将新创建的元素添加到已存在的元素中
+            div.appendChild(newP)
+        }
+        function createNewP2() {
+            // 创建一个新的段落元素
+            var newP = document.createElement("p")
+            //新文本节点
+            var text = document.createTextNode("新创建的段落2222")
+            newP.appendChild(text)
+
+            // 获取已存在的元素
+            var p2 = document.getElementById("p2")
+            var div = document.getElementById("div1")
+            // 添加新创建的元素到已存在的div中，指定p2之前
+            div.insertBefore(newP, p2)
+        }
+
+        //替换html元素
+        function replaceP() {
+            var newP = document.createElement("p")
+            var text = document.createTextNode("新创建的段落3333")
+            newP.appendChild(text)
+            var div = document.getElementById("div2")
+            var p1 = document.getElementById("p3")
+            // 替换
+            div.replaceChild(newP, p1)
+        }
+
+        // 删除元素
+        function deleteP4() {
+            var div = document.getElementById("div2")
+            var p4 = document.getElementById("p4")
+            // 删除元素
+            div.removeChild(p4)
+        }
+    </script>
+</body>
+
+
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body onload="myLoad()">
+    <!-- review：使用label的时候可以点击文本聚焦到文本框 -->
+    <label>用户名：<input id="userName" onkeydown="fun5()" onfocus="fun6()" onblur="fun7()"></label><br>
+    密码：<input type="password" type="password"><br>
+    <button id="btn" type="button" onclick="fun2()" onmouseover="fun3()" onmouseout="fun4()">点击按钮</button>
+    <select name="select" id="month" onchange="fun1()">
+        <option value="1">一月</option>
+        <option value="2">二月</option>
+    </select>
+
+    <script>
+        function myLoad() {
+            console.log("页面加载完成");
+        }
+
+        function fun1() {
+            alert("您选择的月份是：" + document.getElementById("month").value);
+        }
+
+        function fun2() {
+            console.log("按钮被点击了");
+        }
+
+        function fun3() {
+            console.log("鼠标移入了按钮");
+        }
+
+        function fun4() {
+            console.log("鼠标移出了按钮");
+        }
+
+        function fun5() {
+            console.log("按下了键盘");
+        }
+
+        function fun6() {
+            console.log("获得焦点");
+        }
+
+        function fun7() {
+            console.log("失去焦点");
+        }
+    </script>
+</body>
+
+</html>
