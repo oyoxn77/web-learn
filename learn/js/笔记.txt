@@ -29,7 +29,9 @@ onblur：元素失去焦点时触发
 </form>
 前判是否是null或undefined；后者用来判断是否是空字符串
 if(name==null || name=="")
-select中加入name属性。没有该属性时，提交表单会忽略这个字段的值，后端服务器接收不到这个字段。
+select\input等标签中加入name属性。没有该属性时，提交表单会忽略这个字段的值，后端服务器接收不到这个字段。
+当用户填写表单并点击“提交”按钮时，表单会将所有有 name 的值，按照 name=value 的格式发送到服务器。
+
 
 ##正则表达式
 eg.  var reg = /abc/i;
@@ -57,3 +59,17 @@ n? :最多匹配1次 （有无）
 $ : 匹配结尾
 [\u4e00-\u9fa5] 匹配一个汉字字符 注意反斜杠
 {2,4}：这个前面的元素出现至少2次，最多4次
+
+##js案例
+html：
+    table中<tr>row <th>head <td>data
+创建元素：
+    document.createElement("标签名")
+    添加元素属性:
+    eg. var option = document.createElement("option");
+    option.value = "值";
+    option.text = "文本";
+    添加到父元素下面：
+    parent.appendChild(child);
+    移除元素：
+    parent.removeChild(child);

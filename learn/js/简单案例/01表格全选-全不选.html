@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- cellspacing: 0 表示单元格之间的距离为0 ->单线框-->
+    <table id="myTable" border="1" cellpadding="8" cellspacing="0" width="500">
+        <tr>
+            <th>全选 <input id="all" type="checkbox" onclick="myAll()"></th>
+            <th>序号</th>
+            <th>名称</th>
+            <th>单价</th>
+            <th>数量</th>
+            <th>合计</th>
+        </tr>
+        <tr>
+            <td><input type="checkbox" name="one" onclick="myOne()"></td>
+            <td>1</td>
+            <td>苹果</td>
+            <td>5.5</td>
+            <td>2</td>
+            <td>11</td>
+        </tr>
+        <tr>
+            <td><input type="checkbox" name="one" onclick="myOne()"></td>
+            <td>2</td>
+            <td>香蕉</td>
+            <td>3.5</td>
+            <td>3</td>
+            <td>10.5</td>
+        </tr>
+        <tr>
+            <td><input type="checkbox" name="one" onclick="myOne()"></td>
+            <td>3</td>
+            <td>橘子</td>
+            <td>2.5</td>
+            <td>4</td>
+            <td>10</td>
+        </tr>
+    </table>
+
+    <script>
+        function myAll() {
+            var all = document.getElementById("all");
+            var oneList = document.getElementsByName("one");
+            for (var i = 0; i < oneList.length; i++) {
+                oneList[i].checked = all.checked;
+            }
+        }
+
+        // 复选框是自动点击被勾选的 该函数用来依据每个复选框确定是不是全选要被选中
+        function myOne() {
+            var oneList = document.getElementsByName("one");
+            var all = document.getElementById("all");
+            // 如果有一个没有被check 全选的就取消掉
+            for (var i = 0; i < oneList.length; i++) {
+                if (!oneList[i].checked) {
+                    all.checked = false;
+                    return;  //有一个没有被选就结束
+                }
+            }
+            // 同时如果手动选择了全部 全选也要主动勾上
+            all.checked = true;
+        }
+    </script>
+</body>
+
+</html>

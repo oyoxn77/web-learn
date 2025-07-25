@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button type="button" onclick="bianli()">遍历表格</button>
+    <button type="button" onclick="addRow()">添加</button>
+    <table id="myTable" border="1" cellpadding="8" cellspacing="0" width="500">
+        <tr>
+            <th>全选 <input id="all" type="checkbox" onclick="myAll()"></th>
+            <th>序号</th>
+            <th>名称</th>
+            <th>单价</th>
+            <th>数量</th>
+            <th>合计</th>
+            <th>删除</th>
+        </tr>
+        <tr>
+            <td><input type="checkbox" name="one" onclick="myOne()"></td>
+            <td>1</td>
+            <td>苹果</td>
+            <td>5.5</td>
+            <td>2</td>
+            <td>11</td>
+            <td><button type="button" onclick="delRow(this)">删除</button></td>
+        </tr>
+        <tr>
+            <td><input type="checkbox" name="one" onclick="myOne()"></td>
+            <td>2</td>
+            <td>香蕉</td>
+            <td>3.5</td>
+            <td>3</td>
+            <td>10.5</td>
+            <td><button type="button" onclick="delRow(this)">删除</button></td>
+        </tr>
+        <tr>
+            <td><input type="checkbox" name="one" onclick="myOne()"></td>
+            <td>3</td>
+            <td>橘子</td>
+            <td>2.5</td>
+            <td>4</td>
+            <td>10</td>
+            <td><button type="button" onclick="delRow(this)">删除</button></td>
+        </tr>
+    </table>
+
+    <script>
+        function addRow() {
+            // 获取表格
+            var table = document.getElementById("myTable");
+            // 添加新行
+            var newRow = table.insertRow();
+            // 添加新列
+            var newTd0 = newRow.insertCell();
+            var newTd1 = newRow.insertCell();
+            var newTd2 = newRow.insertCell();
+            var newTd3 = newRow.insertCell();
+            var newTd4 = newRow.insertCell();
+            var newTd5 = newRow.insertCell();
+            var newTd6 = newRow.insertCell();
+            // 给每一个单元格添加内容
+            // 添加全选框
+            var box = document.createElement("input");
+            box.type = "checkbox";
+            box.name = "one";
+            newTd0.appendChild(box);
+            // newTd0.innerHTML = box; box是DOM元素不可以直接赋值给innerHTML
+            // 添加序号
+            var num = table.rows.length - 1;
+            newTd1.innerHTML = num;
+            // 添加名称
+            var name = prompt("请输入名称:");
+            newTd2.innerHTML = name;
+            // 添加单价
+            var price = prompt("请输入单价:");
+            newTd3.innerHTML = price;
+            // 添加数量
+            var count = prompt("请输入数量:");
+            newTd4.innerHTML = count;
+            // 添加合计
+            var total = parseFloat(price) * parseFloat(count);
+            newTd5.innerHTML = total;
+            // 添加删除按钮
+            var delBn = document.createElement("button");
+            delBn.type = "button";
+            delBn.innerHTML = "删除";
+            delBn.onclick = function () {
+                delRow(this);
+            }
+            newTd6.appendChild(delBn);
+        }
+
+        function delRow(btn) {
+            var table = document.getElementById("myTable");
+            // 获取当前行
+            var tr = btn.parentNode.parentNode;
+            // 删除当前行 根据index删除的！
+            table.deleteRow(tr.rowIndex)
+        }
+    </script>
+</body>
+
+</html>

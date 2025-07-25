@@ -72,6 +72,7 @@
             if (pwd2.length < 8) {
                 msg.innerHTML = "确认密码长度至少8位";
                 msg.style.color = "red";
+                return false;
             }
             if (pwd != pwd2) {
                 msg.innerHTML = "确认密码与密码不一致";
@@ -82,8 +83,18 @@
             msg.style.color = "green";
             return true;
         }
+
+        function validateGender() {
+            var gender = document.getElementById("gender").value;
+            if (gender == -1) {
+                alert("请选择性别");
+                return false;
+            }
+            return true;
+        }
+
         function resgister() {
-            return
+            return valiadateName() && valiadatePwd() && confirmPassword() && validateGender();
         }
     </script>
 </body>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <select onchange="changeCity(this.value)">
+        <option>--请选择省份--</option>
+        <option value="0">上海</option>
+        <option value="1">浙江省</option>
+        <option value="2">河北省</option>
+    </select>
+    <!-- disabled="disabled" 禁用下拉框 -->
+    <select name="city" id="city" disabled="disabled"></select>
+</body>
+
+</html>
+<script>
+    var cityList = new Array();
+    cityList[0] = new Array("上海市");
+    cityList[1] = new Array("杭州市", "嘉兴市", "宁波市", "绍兴市");
+    cityList[2] = new Array("石家庄市", "唐山市", "承德市", "张家口市");
+    function changeCity(provinceId) {
+        // 获取下拉框
+        var city = document.getElementById("city");
+        // 清空下拉框 要不然每次选择城市是在后面累加的
+        city.length = 0;
+        // 否则下拉框始终不可用
+        // city.disabled = false;
+        var arr = cityList[provinceId];
+        // 没有匹配项 禁用下拉框
+        if (!arr) {
+            city.disabled = true;
+            return;
+        }
+        // 有匹配项 启用下拉框
+        city.disabled = false;
+        // 要展示的列表
+        for (var i = 0; i < arr.length; i++) {
+            // 创建option节点
+            var option = document.createElement("option");
+            option.text = arr[i];
+            city.appendChild(option)
+        }
+    }
+</script>
