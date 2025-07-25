@@ -15,7 +15,7 @@ flex布局：
             margin-left: auto; //靠右
         }
 
-    左中右：
+    左中右：(注意想让垂直水平居中生效一定要启用flex布局！)
     .wrap{
             display: flex;
             justify-content: space-between; //会将首尾元素推到两侧
@@ -31,3 +31,14 @@ flex布局：
             margin:0 auto; //中间元素居中
         }
     
+css:
+//改变元素宽高计算方式 使得宽高包括padding && border
+box-sizing: border-box;
+
+position: relative; //相对定位
+常见作用：
+当子元素使用 position: absolute 时，会相对于最近的
+position:relative/absolute/fixed 的父元素进行定位。
+注意不要写img 50%表示居中显示 、/contain保持比例缩放、no-repeat不重复显示
+background: url("地址") 50%/contain no-repeat;
+注意：像<i>这种行内标签，不将其设置为 display: inline-block 并指定宽高的话 不显示。
