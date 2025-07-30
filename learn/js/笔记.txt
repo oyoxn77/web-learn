@@ -81,21 +81,78 @@ XMLHttpRequest对象：
     eg. xhr.open("GET", "https://www.baidu.com");
     发送数据：xhr.send();
     请求成功完成并响应后触发： xhr.onload()
+    xhr.onload = () => {
+        if (xhr.status === 200) {
+            console.log(xhr.response); // 处理成功响应
+        } else {
+            console.error(xhr.statusText); // 处理服务器错误
+        }
+    };
+    真正发送http请求：xhr.send(data); 
+
+使用promise封装异步逻辑，外部就可以使用.then()和.catch()来处理结果。
+eg.使用promise处理ajax请求
+    function fetchData(url) {
+    return new Promise((resolve, reject) => {
+        // 发送 XMLHttpRequest 请求
+        const xhr = new XMLHttpRequest();
+        xhr.open('GET', url);
         xhr.onload = () => {
-    if (xhr.status === 200) {
-        console.log(xhr.response); // 处理成功响应
-    } else {
-        console.error(xhr.statusText); // 处理服务器错误
+        if (xhr.status === 200) {
+            resolve(xhr.response);
+        } else {
+            // 服务器问题进入
+            reject(new Error(xhr.statusText));
+        }
+        };
+        // 网络 或 DNS问题调用
+        xhr.onerror = () => reject(new Error('网络错误'));
+        // 此前都是配置 只有send之后才是真正发出请求
+        xhr.send();
+    });
     }
-    };
 
-    // readyState 请求的当前状态
-    //readyState === 4 ，===4说明响应完成
-    //200 http相应状态码
-    xhr.onreadystatechange  = function () {
-    if (xhr.status === 200 && xhr.readyState === 4) {
-        console.log('Success:', xhr.responseText);
-    }
-    };
+    // 真正使用调用
+    fetchData('https://api.example.com/data')
+    .then((data) => {
+        console.log('获取数据成功:', data);
+    })
+    .catch((error) => {
+        console.error('获取数据失败:', error);
+    });
 
+fetch是现代浏览器内置的一个用于发起网络请求的接口。
+它用来替代传统的 XMLHttpRequest
+提供了更简洁和基于 Promise 的异步请求方式。
 
+eg.使用promise链处理多个异步请求
+//fetch 返回一个 Promise，Promise resolve 的结果是一个 Response 对象，而不是解析好的数据
+function getUser(userId) {
+  return fetch(`/users/${userId}`);
+}
+
+function getPosts(userId) {
+  return fetch(`/users/${userId}/posts`);
+}
+
+// 发送请求获取用户数据，返回一个promise
+getUser(123)
+  .then((user) => {
+    console.log('获取用户信息:', user);
+    return getPosts(user.id);
+  })
+  .then((posts) => {
+    console.log('获取用户帖子:', posts);
+  })
+  .catch((error) => {
+    console.error('操作失败:', error);
+  });
+
+注意：then块默认向下顺序执行，return不能中断，可以通过throw抛出异常来中断执行。
+以上由于fetch返回的是一个promise，所以可以用.then()来处理结果，.catch()来处理错误。
+
+=》async/await
+async定义异步函数，函数内部使用await关键字等待异步操作完成，await后面跟一个Promise对象
+，如果Promise对象状态变为resolved则返回该Promise对象的结果，如果Promise对象状态变为rejected，则抛出该Promise对象的错误。
+
+回调函数：作为参数传递给另一个函数的函数。
