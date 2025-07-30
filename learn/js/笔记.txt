@@ -73,3 +73,29 @@ html：
     parent.appendChild(child);
     移除元素：
     parent.removeChild(child);
+
+##http请求
+XMLHttpRequest对象：
+    创建对象：var xhr = new XMLHttpRequest();
+    初始化请求：xhr.open("请求方式", "请求地址", 是否异步);
+    eg. xhr.open("GET", "https://www.baidu.com");
+    发送数据：xhr.send();
+    请求成功完成并响应后触发： xhr.onload()
+        xhr.onload = () => {
+    if (xhr.status === 200) {
+        console.log(xhr.response); // 处理成功响应
+    } else {
+        console.error(xhr.statusText); // 处理服务器错误
+    }
+    };
+
+    // readyState 请求的当前状态
+    //readyState === 4 ，===4说明响应完成
+    //200 http相应状态码
+    xhr.onreadystatechange  = function () {
+    if (xhr.status === 200 && xhr.readyState === 4) {
+        console.log('Success:', xhr.responseText);
+    }
+    };
+
+
