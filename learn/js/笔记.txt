@@ -29,7 +29,7 @@ onblur：元素失去焦点时触发
 </form>
 前判是否是null或undefined；后者用来判断是否是空字符串
 if(name==null || name=="")
-select\input等标签中加入name属性。没有该属性时，提交表单会忽略这个字段的值，后端服务器接收不到这个字段。
+【注意！！】select\input等标签中加入name属性。没有该属性时，提交表单会忽略这个字段的值，后端服务器接收不到这个字段。
 当用户填写表单并点击“提交”按钮时，表单会将所有有 name 的值，按照 name=value 的格式发送到服务器。
 
 
@@ -99,3 +99,22 @@ XMLHttpRequest对象：
     };
 
 
+********
+58之后（bilibili）
+##字符串
+使用"\"在字符串内部进行换行
+判断一个字符串是否存在 常用！
+ if (hello.indexOf("e") > -1) {
+     console.log("有e");
+  } else {
+            console.log("没有e");
+  }
+
+##常见制表符
+\n 换行
+\r 回车 光标移到当前行的开头
+
+##event对象和方法
+阻止事件冒泡：只想触发当前元素的事件，不想触发父元素的事件，可以阻止事件冒泡。
+阻止事件冒泡：event.stopPropagation()
+阻止默认事件方法：event.preventDefault()  常用在表单提交时，阻止默认提交行为。

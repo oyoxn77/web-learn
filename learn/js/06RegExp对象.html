@@ -15,8 +15,8 @@
         console.log(result);
 
         var reg2 = /^[a-zA-Z]+[\u4e00-\u9fa5]*[0-9]$/
-        var str2 = "a公司拼音为9";
-        var str3 = "a公司拼音为999";
+        var str2 = "a公司拼音为9";  //true
+        var str3 = "a公司拼音为999";  //false
         console.log(reg2.test(str2));//true
         console.log(reg2.test(str3)); // false
     </script>

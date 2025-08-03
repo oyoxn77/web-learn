@@ -42,3 +42,6 @@ position:relative/absolute/fixed 的父元素进行定位。
 注意不要写img 50%表示居中显示 、/contain保持比例缩放、no-repeat不重复显示
 background: url("地址") 50%/contain no-repeat;
 注意：像<i>这种行内标签，不将其设置为 display: inline-block 并指定宽高的话 不显示。
+
+###querySelector() 方法：
+document.querySelector(selector) 方法返回匹配选择器的第一个元素。
