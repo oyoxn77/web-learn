@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        h3 {
+            height: 400px
+        }
+    </style>
+</head>
+
+<body>
+    <h3>hh</h3>
+    <h3>hh</h3>
+    <h3>hh</h3>
+    <h3>hh</h3>
+    <h3>hh</h3>
+    <h3>hh</h3>
+    <h3>hh</h3>
+    <h3>hh</h3>
+    <h3>hh</h3>
+    <script>
+        function debounce(func, wait) {
+            var timer = null;
+            return function () {
+                // 定时器存在 清除定时器 重新设置定时器
+                if (timer) { clearTimeout(timer); }
+                // 定时器不存在 重新设置定时器
+                timer = setTimeout(func, wait);
+
+            }
+        }
+
+        window.onscroll = debounce(scrollFunc, 200)
+        function scrollFunc() {
+            var scrollTop = document.documentElement.scrollTop;
+            console.log(scrollTop);
+        }
+
+
+
+
+        // // 浏览器滚动事件
+        // window.onscroll = function () {
+        //     // console.log("滚动了")
+        //     // 获取滚动条的高度
+        //     var scrollTop = document.documentElement.scrollTop;
+        //     console.log(scrollTop);
+        // }
+
+
+    </script>
+</body>
+
+</html>

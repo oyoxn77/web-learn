@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 100px;
+            height: 100px;
+            background: red;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+    </div>
+    <script>
+        // var i = 0;
+        // setInterval(function () {
+        //     i++
+        //     console.log(i);
+        // }, 1000);
+
+        var box = document.querySelector('.box');
+        // 透明度 opacity：0~1
+        var opacity = 1;
+        var fade = setInterval(function () {
+            if (opacity > 0) {
+                opacity -= 0.05
+                box.style.opacity = opacity;
+            } else {
+                clearInterval(fade);
+            }
+        }, 1000)
+    </script>
+</body>
+
+</html>
