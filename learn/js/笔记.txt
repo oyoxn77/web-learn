@@ -118,3 +118,9 @@ XMLHttpRequest对象：
 阻止事件冒泡：只想触发当前元素的事件，不想触发父元素的事件，可以阻止事件冒泡。
 阻止事件冒泡：event.stopPropagation()
 阻止默认事件方法：event.preventDefault()  常用在表单提交时，阻止默认提交行为。
+
+##定时器
+settimeout()  延迟执行代码  
+setinterval()  循环执行代码
+##防抖
+一定时间内如果再次触发，将重新及计时。=>某个时间限内只执行一次
