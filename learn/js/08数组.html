@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //遍历数组
+        var arr = [1, 2, 3, 4, 5];
+        for (var i in arr) {
+            console.log(arr[i]);
+        }
+
+        //数组的 push && pop最后一个
+        var arr1 = ["hello"]
+        var arr2 = arr1.push("world"); //添加元素到数组末尾
+        console.log(arr1); //输出["hello", "world"] 是添加到arr1中！
+        console.log(arr2); //2  push返回数组长度 而不是数组本身
+        var arr3 = arr1.pop(); //删除数组末尾元素
+        console.log(arr1); //输出["hello"]
+        console.log(arr3); //输出"world"
+
+        //数组的 shift移除 && unshift添加 第一个元素
+        var arr4 = ["hello", "world"]
+        var arr5 = arr4.shift(); //删除数组第一个元素
+        console.log(arr4); //输出["world"]
+        console.log(arr5); //输出"hello"
+        var arr6 = arr4.unshift("hello"); //添加元素到数组第一个位置
+        console.log(arr4); //输出["hello", "world"]
+        console.log(arr6); //2  unshift返回数组长度 而不是数组本身
+
+        var arr7 = [1, 2, 3, 4, 5];
+        var item;
+        while (item = arr7.shift()) {
+            console.log(item);
+        }
+        console.log(arr7); //[]
+        arr7.unshift(1, 2, 3, 4, 5);  //按顺序添加
+        console.log(arr7); //[1, 2, 3, 4, 5]
+
+        //join（）方法，将数组元素用指定字符连接成字符串 数组->字符串
+        //split 和 join 实现数组和字符串互相转换
+        var arr8 = [1, 2, 3, 4, 5, null, undefined];
+        var str = arr8.join();
+        // var str = arr8.join(" ");
+        console.log(str); //1,2,3,4,5,,
+        var str1 = str.split(",");
+
+    </script>
+</body>
+
+</html>

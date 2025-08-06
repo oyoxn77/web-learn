@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>知乎问答首页（仿写）</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Helvetica Neue', sans-serif;
+            background-color: #f6f6f6;
+            color: #1a1a1a;
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .navbar {
+            background-color: #fff;
+            padding: 12px 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #eaeaea;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+
+        .navbar-left {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #0084ff;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 16px;
+            font-size: 14px;
+            color: #555;
+        }
+
+        .navbar-right {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .search-box {
+            border: 1px solid #ccc;
+            padding: 6px 10px;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+
+        .btn-blue {
+            background-color: #0084ff;
+            color: white;
+            padding: 6px 14px;
+            border-radius: 4px;
+            border: none;
+            cursor: pointer;
+        }
+
+        .avatar {
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+        }
+
+        .container {
+            display: flex;
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 0 20px;
+        }
+
+        .main {
+            flex: 3;
+            margin-right: 20px;
+        }
+
+        .sidebar {
+            flex: 1.2;
+        }
+
+        .publish-box {
+            background: #fff;
+            padding: 16px;
+            border-radius: 6px;
+            margin-bottom: 20px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+        }
+
+        .publish-input {
+            border: 1px solid #ddd;
+            padding: 12px;
+            border-radius: 6px;
+            color: #666;
+            margin-bottom: 12px;
+        }
+
+        .publish-actions {
+            display: flex;
+            justify-content: space-around;
+            font-size: 14px;
+            color: #666;
+        }
+
+        .tabs {
+            background: #fff;
+            padding: 10px 16px;
+            border-radius: 6px;
+            display: flex;
+            gap: 20px;
+            font-size: 15px;
+            margin-bottom: 20px;
+        }
+
+        .tabs span {
+            cursor: pointer;
+            color: #666;
+        }
+
+        .tabs .active {
+            color: #0084ff;
+            font-weight: bold;
+        }
+
+        .question-card {
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.04);
+            font-size: 16px;
+            line-height: 1.6;
+        }
+
+        .question-title {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 12px;
+            color: #222;
+        }
+
+        .question-content {
+            font-size: 15px;
+            color: #444;
+            margin-bottom: 16px;
+        }
+
+        .question-content .read-more {
+            color: #007fff;
+            margin-left: 4px;
+            font-size: 14px;
+        }
+
+        .question-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+            font-size: 14px;
+            color: #666;
+            align-items: center;
+        }
+
+
+        .card-header {
+            display: flex;
+            align-items: center;
+            font-size: 14px;
+            color: #888;
+            margin-bottom: 8px;
+        }
+
+        .card-header img {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            margin-right: 8px;
+        }
+
+
+        .card {
+            background: #fff;
+            padding: 16px;
+            border-radius: 6px;
+            margin-bottom: 20px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+        }
+
+        .card-title {
+            font-weight: bold;
+            margin-bottom: 10px;
+            font-size: 15px;
+        }
+
+        .circle-box {
+            background: #f6f7f8;
+            padding: 20px;
+            border-radius: 8px;
+            font-size: 14px;
+            color: #333;
+        }
+
+        .circle-item {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 20px;
+        }
+
+        .circle-item img {
+            width: 60px;
+            height: 60px;
+            border-radius: 8px;
+            object-fit: cover;
+            flex-shrink: 0;
+        }
+
+        .circle-content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .circle-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+        }
+
+        .circle-info {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .circle-title {
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .circle-subtitle {
+            font-size: 12px;
+            color: #888;
+        }
+
+        .circle-btn {
+            background-color: #00b96b;
+            color: #fff;
+            padding: 6px 12px;
+            border: none;
+            border-radius: 16px;
+            font-size: 13px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .circle-btn:hover {
+            background-color: #009456;
+        }
+
+        .circle-desc {
+            margin-top: 8px;
+            font-size: 13px;
+            color: #555;
+        }
+
+        .circle-more {
+            display: inline-block;
+            margin-top: 10px;
+            color: #007fff;
+            font-size: 13px;
+        }
+
+        footer {
+            background: #f6f7f8;
+            padding: 40px 24px;
+            color: #8899a6;
+            font-size: 13px;
+        }
+
+        footer a {
+            color: #8899a6;
+        }
+
+        footer img {
+            width: 28px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- 顶部导航 -->
+    <div class="navbar">
+        <div class="navbar-left">
+            <div class="logo">知乎</div>
+            <div class="nav-links">
+                <a href="#">首页</a>
+                <a href="#">知乎学堂</a>
+                <a href="#">等你来答</a>
+            </div>
+        </div>
+        <div class="navbar-right">
+            <input class="search-box" placeholder="搜索问题、话题..." />
+            <button class="btn-blue">提问</button>
+            <!-- 测试bug，暂时用图片代替头像 -->
+            <img class="avatar" src="../image" />
+        </div>
+    </div>
+
+    <!-- 主体内容 -->
+    <div class="container">
+        <div class="main">
+            <div class="publish-box">
+                <div class="publish-input">分享此刻的想法...</div>
+                <div class="publish-actions">
+                    <span> 图片</span>
+                    <span> 视频</span>
+                    <span>文章</span>
+                </div>
+            </div>
+
+            <div class="tabs">
+                <span>关注</span>
+                <span class="active">推荐</span>
+                <span>热榜</span>
+                <span>专栏</span>
+            </div>
+            <div class="question-card">
+                <div class="question-title">经常看书的人和不看书的人有什么区别？</div>
+                <div class="question-content">
+                    浙大小陈老师：在地铁上见过两种人：一个捧着 Kindle 专注默读，指尖偶尔滑动屏幕；
+                    另一个刷着短视频，手指快速上下翻动，嘴角随画面不时抽动。这两种…<a href="#" class="read-more">阅读全文</a>
+                </div>
+                <div class="question-actions">
+                    <span>↑ 赞同 69</span>
+                    <span>↓</span>
+                    <span>8 条评论</span>
+                    <span>分享</span>
+                    <span>收藏</span>
+                    <span>喜欢</span>
+                    <span>⋯⋯</span>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- 侧边栏 -->
+        <div class="sidebar">
+            <div class="card">
+                <div class="card-title">创作中心</div>
+                <p>开启你的知乎创作之旅，发布高质量内容，成为知乎创作者。</p>
+                <button class="btn-blue" style="margin-top:10px;">+ 开始创作</button>
+            </div>
+
+            <div class="circle-box">
+                <h3 style="font-size: 16px; margin-bottom: 16px;">圈子推荐</h3>
+
+                <div class="circle-item">
+                    <img src="https://picx.zhimg.com/v2-84f0667ed24aba4eb5e6359ae83909ff_l.jpg" alt="圈子图标" />
+                    <div class="circle-content">
+                        <div class="circle-top">
+                            <div class="circle-info">
+                                <div class="circle-title">独处充电站</div>
+                                <div class="circle-subtitle">1万独享家 · 1.7万讨论</div>
+                            </div>
+                            <button class="circle-btn">+ 加入</button>
+                        </div>
+                        <div class="circle-desc">
+                            每个真正会独处的人都知道，独处不是孤独，而是自我充电的绝佳时刻。我们期待：记录你的独处创作：那些在静谧时刻诞生的照片、文字、音乐等作品…
+                        </div>
+                    </div>
+                </div>
+
+                <a href="#" class="circle-more">查看更多圈子 ></a>
+            </div>
+        </div>
+    </div>
+
+    <!-- 页脚 -->
+    <footer>
+        <div style="max-width:1000px; margin:0 auto;">
+            <div style="display: flex; flex-wrap: wrap; gap: 40px; margin-bottom: 24px;">
+                <div>
+                    <p>❓ 帮助中心</p>
+                    <p><a href="#">知乎隐私保护指引</a>　<a href="#">联系我们</a></p>
+                </div>
+                <div>
+                    <p>🚩 举报中心</p>
+                    <p><a href="#">涉未成年举报</a>　<a href="#">网络语言举报</a></p>
+                </div>
+                <div>
+                    <p>ℹ️ 关于知乎</p>
+                    <p><a href="#">下载知乎</a>　<a href="#">知乎招聘</a></p>
+                </div>
+            </div>
+
+            <div>
+                京 ICP 证 110745 号 · 京公网安备 11010802020088 号 ·
+                服务热线：400-919-0001 · © 2025 知乎 北京智者天下科技有限公司版权所有
+            </div>
+
+            <div style="margin-top: 20px; display: flex; align-items: center; gap: 8px;">
+                <img src="https://pica.zhimg.com/80/v2-ccdb7828c12afff31a27e51593d23260_720w.png" alt="适老化图标" />
+                <span>适老化无障碍服务</span>
+            </div>
+        </div>
+    </footer>
+
+</body>
+
+</html>
