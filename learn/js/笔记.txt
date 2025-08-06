@@ -155,10 +155,9 @@ getUser(123)
 async定义异步函数，函数内部使用await关键字等待异步操作完成，await后面跟一个Promise对象
 ，如果Promise对象状态变为resolved则返回该Promise对象的结果，如果Promise对象状态变为rejected，则抛出该Promise对象的错误。
 
-<<<<<<< HEAD
+
 回调函数：作为参数传递给另一个函数的函数。
-=======
-********
+
 58之后（bilibili）
 ##字符串
 使用"\"在字符串内部进行换行
@@ -183,4 +182,4 @@ settimeout()  延迟执行代码
 setinterval()  循环执行代码
 ##防抖
 一定时间内如果再次触发，将重新及计时。=>某个时间限内只执行一次
->>>>>>> 80f5ee2fae0f132708df180dea64fcae453c69b1
+
