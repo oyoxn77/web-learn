@@ -36,6 +36,7 @@ css:
 box-sizing: border-box;
 
 position: relative; //相对定位
+使用相对定位的元素，可以使用top、bottom、left、right属性来相对自己原来的位置进行便宜。
 常见作用：
 当子元素使用 position: absolute 时，会相对于最近的
 position:relative/absolute/fixed 的父元素进行定位。

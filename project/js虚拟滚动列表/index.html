@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      /* 更适合响应式布局 */
+      box-sizing: border-box;
+    }
+
+    /* 滚动容器 */
+    .virtual-box {
+      width: 100vw;
+      height: 100vh;
+      /* 水平居中 上下留白 */
+      /* margin: 20px auto; */
+      border: 2px solid red;
+      /* 内容超出时可以滚动 */
+      overflow: auto;
+      position: relative;
+    }
+
+    /* 滚动虚拟条 */
+    .virtual-scroll {
+      width: 100%;
+    }
+
+    /* 滚动列表容器高度 */
+    .virtual-list {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      /* top:0;
+      left: 0; */
+    }
+
+    /* height 和 line-height 一致 垂直方向居中对齐 */
+    .virtual-item {
+      height: 50px;
+      line-height: 50px;
+      /* padding: 5px 10px; */
+      background-color: #f0f0f0;
+      border: 1px solid green;
+
+    }
+  </style>
+</head>
+
+<body>
+  <!-- 滚动容器 -->
+  <div class="virtual-box">
+    <!-- 滚动虚拟条 -->
+    <div class="virtual-scroll">
+      <!-- 滚动虚拟列表 -->
+      <div class="virtual-list">
+        <div class="virtual-item">11111</div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // 准备初始数据
+    let arr = [];
+    for (let i = 1; i <= 1000; i++) {
+      arr.push("item-" + i)
+    }
+
+    // 获取滚动容器
+    const container = document.querySelector(".virtual-box")
+    // 获取滚动条
+    const scroll = document.querySelector(".virtual-scroll")
+    // 获取滚动列表
+    const list = document.querySelector(".virtual-list")
+
+    // 初始化数据
+    //列表项高度 如果css部分进行了边距之类的设计，这里也要进行修改
+    const itemHeight = 50
+    // 滚动条高度 (总高度)
+    scroll.style.height = `${itemHeight * arr.length}px`
+    // 一屏展示数 使用总高度
+    // 使用floor可能留白 使用ceil哪怕多渲染一个
+    const viewCount = Math.ceil(container.offsetHeight / itemHeight)
+    // 设置起始位置
+    let startIndex = 0;
+    let endIndex = viewCount;
+
+    // 实时渲染数据
+    function renderData (start, end) {
+      // 已经展示完全部数据
+      if (end > arr.length) {
+        end = arr.length
+      }
+      let divStr = ''
+      // 循环渲染
+      for (let i = start; i < end; i++) {
+        divStr += `<div class="virtual-item">${arr[i]}</div>`
+      }
+      // 更新展示列表
+      list.innerHTML = divStr
+    }
+    renderData(startIndex, endIndex)
+
+    // 监听滚动事件
+    container.addEventListener("scroll", function () {
+      // 计算当前移动了多少个item 
+      console.log(container.scrollTop)
+      startIndex = Math.floor(container.scrollTop / itemHeight)
+      // 始终渲染固定数量viewCount的item
+      endIndex = startIndex + viewCount
+      renderData(startIndex, endIndex)
+      // 以上已经实现了item渲染变化，但是列表的位置发生偏移
+      // container.scrollTop % itemHeight余数不为0说明，展示恰好在某一项中间
+      let startOffset = container.scrollTop - (container.scrollTop % itemHeight);
+      // 整体向下平移整数个item距离
+      list.style.transform = `translateY(${startOffset}px)`;
+
+    })
+
+  </script>
+</body>
+
+</html>
