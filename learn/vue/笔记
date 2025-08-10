@@ -1,0 +1,9 @@
+vue2：选项式api data\methods\mounted...
+vue3：组合式api ref\onmounted...
+
+创建项目： npm init vue@latest
+    起名字不要有大写
+    cnpm是npm国内镜像
+
+index.html：html入口文件
+vite.config.js：vue配置
